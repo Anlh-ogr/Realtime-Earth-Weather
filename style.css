@@ -27,6 +27,7 @@ body {
     align-items: center;                                /* Set align items to center */
     margin-bottom: 10px;                                /* Set margin bottom for header */
     padding: 15px 0;                                    /* Set padding for header */
+    
     /* set box shadow for input_city */
     & #city_input {
         background-color: var(--bg-color2);             /* Set background color for input */
@@ -62,3 +63,82 @@ body {
     }
 }
 
+/* Weather Card Styles */
+.card {
+    background-color: var(--bg-color2);                 /* Set background color for card */
+    padding: 15px;                                      /* Set padding for card */
+    border-radius: 15px;                                /* Set border radius for card */
+    margin-bottom: 15px;                                /* Set margin bottom for card */
+
+    /* set box shadow current weather in card */
+    & p {
+        font-size: 14px;                                /* Set font size for paragraph */
+        color: #999;                                  /* Set text color for paragraph */
+    }
+
+    /*set box shadow degree of weather in card */
+    & h2 {
+        font-size: 32px;                                /* Set font size for heading */
+        font-weight: 500;                               /* Set margin bottom for heading */
+    }
+}
+
+/* Weather Data Styles */
+.weather-data {
+    /*  use flexbox to align items 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+    */
+
+
+    /*  use grid to align items 
+syntax: display: grid;
+        grid-template-columns: repeat(4, 1fr); 4 columns with equal width, 1fr means 1 fraction of the available space */
+    display: grid;                                      /* Set display property to grid */
+    grid-template-columns: repeat(4, 1fr);              /* Set grid template columns */
+    gap: 12px;                                          /* Set gap between grid items */
+
+    /* set box shadow for weather data */
+    & .weather-left {
+        grid-column: span 1;                            /* Set grid column span to 1 */
+
+        /* set box shadow for weather icon */
+        & .current-weather {
+            display: flex;                              /* Set display property to flex */
+            justify-content: space-between;             /* Set space between elements */
+            align-items: center;                        /* Set align items to center */
+
+            /* set box height for weather icon */
+            & h2 {
+                margin: 7px 0;                          /* Set margin for heading */
+            }
+
+            /* set color for weather icon */
+            & p {
+                color: #fff;                          /* Set text color for paragraph */
+            }
+        }
+
+        /* set box shadow card footer in weather data */
+        & .card-footer p {
+            font-size: 14px;                            /* Set font size for paragraph */
+            margin-bottom: 12px;                        /* Set margin bottom for paragraph */
+        }
+
+        /* set box shadow for days_forecast */
+        & .forecast-item {
+            display: grid;                              /* Set display property to grid */
+            grid-template-columns: repeat(3, 1fr);      /* Set grid template columns */
+            place-items: center;                        /* Set place items to center */
+            margin-bottom: 15px;                        /* Set margin bottom for forecast item */
+
+            /* set box for icon wrapper */
+            & .icon-wrapper {
+                display: flex;                          /* Set display property to flex */
+                align-items: center;                    /* Set align items to center */
+            }
+        }
+    }
+}
