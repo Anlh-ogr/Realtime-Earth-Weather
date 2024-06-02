@@ -1,0 +1,64 @@
+:root {
+    --bg-color1: #212529;                 /* Dark Background */
+    --bg-color2: #2a2b2d;                 /* Light Background */    
+}
+*{
+    margin: 0;                              /* Remove default margin */
+    padding: 0;                             /* Remove default padding */
+    box-sizing: border-box;                 /* Include padding and border in element's total width and height */
+}
+
+/* Global Styles */
+body {
+    min-height: 100vh;                      /* Set minimum height of the viewport for body */
+    background-color: var(--bg-color1);     /* Set background color for body */
+    color: #fff;                          /* Set text color for body */
+    font-family: sans-serif;                /* Set font family for body */
+    padding: 0 15px;                        /* Set padding for body */
+}
+
+/* Header Styles */
+.header {
+    position: sticky;                                   /* Set header to stick on top */
+    top: 0;                                             /* Set top position of header */
+    background-color: var(--bg-color1);                 /* Set background color for header */
+    display: flex;                                      /* Set display property to flex */
+    justify-content: space-between;                     /* Set space between elements */
+    align-items: center;                                /* Set align items to center */
+    margin-bottom: 10px;                                /* Set margin bottom for header */
+    padding: 15px 0;                                    /* Set padding for header */
+    /* set box shadow for input_city */
+    & #city_input {
+        background-color: var(--bg-color2);             /* Set background color for input */
+        border: none;                                   /* Remove border */
+        padding: 12px;                                  /* Set padding for input */
+        font-size: 16px;                                /* Set font size for input */
+        border-radius: 25px;                            /* Set border radius for input */
+        color: #fff;                                  /* Set text color for input */
+        /* set box shadow for input */
+        &:focus {
+            outline: none;                              /* Remove outline */
+        }
+    }
+
+    /* set box shadow for button search */
+    & #searchBtn {
+        border: none;                                   /* Remove border */
+        font-size: 16px;                                /* Set font size for button */
+        padding: 12px;                                  /* Set padding for button */
+        border-radius: 25px;                            /* Set border radius for button */
+        background-color: #fff;                       /* Set background color for button */
+        cursor: pointer;                                /* Set cursor to pointer */
+    }
+
+    /* set box shadow for button location */
+    & #locationBtn {
+        border: none;                                   /* Remove border */
+        font-size: 16px;                                /* Set font size for button */
+        padding: 12px;                                  /* Set padding for button */
+        border-radius: 25px;                            /* Set border radius for button */
+        background-color: #ea6e4d;                    /* Set background color for button */
+        cursor: pointer;                                /* Set cursor to pointer */
+    }
+}
+
