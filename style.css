@@ -1,6 +1,11 @@
 :root {
     --bg-color1: #212529;                 /* Dark Background */
-    --bg-color2: #2a2b2d;                 /* Light Background */    
+    --bg-color2: #2a2b2d;                 /* Light Background */
+    --aqi-1: #d4e157;                     /* Good AQI */
+    --aqi-2: #ffee58;                     /* Moderate AQI */
+    --aqi-3: #ffca28;                     /* Unhealthy for Sensitive Groups AQI */
+    --aqi-4: #ff7043;                     /* Unhealthy AQI */
+    --aqi-5: #ef5350;                     /* Very Unhealthy AQI */
 }
 *{
     margin: 0;                              /* Remove default margin */
@@ -15,6 +20,11 @@ body {
     color: #fff;                          /* Set text color for body */
     font-family: sans-serif;                /* Set font family for body */
     padding: 0 15px;                        /* Set padding for body */
+}
+
+/* Container Styles */
+hr {
+    margin-bottom: 10px;                    /* Set margin bottom for horizontal rule */
 }
 
 /* Header Styles */
@@ -100,7 +110,8 @@ syntax: display: grid;
     grid-template-columns: repeat(4, 1fr);              /* Set grid template columns */
     gap: 12px;                                          /* Set gap between grid items */
 
-    /* set box shadow for weather data */
+
+    /* set box for weather left */
     & .weather-left {
         grid-column: span 1;                            /* Set grid column span to 1 */
 
@@ -138,6 +149,118 @@ syntax: display: grid;
             & .icon-wrapper {
                 display: flex;                          /* Set display property to flex */
                 align-items: center;                    /* Set align items to center */
+            }
+        }
+    }
+
+
+
+    /* set box shadow for weather right */
+    & .weather-right {
+        grid-column: span 3;                            /* Set grid column span to 3 */
+        
+        /* set box shadow for weather details [air quality, humidity, wind speed,...] */ 
+        & h2 {
+            margin-bottom: 10px;                        /* Set margin bottom for heading */
+        }
+        
+        /* box shadow for weather details [air quality, humidity, wind speed,...] */
+        & .highlights {
+            display: grid;                              /* Set display property to grid */
+            grid-template-columns: repeat(4, 1fr);      /* Set grid template columns */
+            column-gap: 15px;                           /* Set column gap */
+
+            /* set box shadow air quality  and humidity */
+            & .card:nth-of-type(1),
+            & .card:nth-of-type(2) {
+                grid-column: span 2;                      /* Set grid column span to 2 */
+            }
+
+            /* set box shadow for highlight card right */
+            & .card-head {
+                display: flex;                          /* Set display property to flex */
+                justify-content: space-between;         /* Set space between elements */
+                margin-bottom: 10px;                    /* Set margin bottom for card head */
+
+                /* set box shadow and color for air quality */
+                & .air-index {
+                    color: #000;                      /* Set text color for air index */
+                    padding: 5px 10px;                  /* Set padding for air index */
+                    border-radius: 15px;                /* Set border radius for air index */
+                    
+                    /* set color for air index (good) */
+                    &.aqi-1 {
+                        background-color: var(--aqi-1); /* Set background color for good AQI */
+                    }
+
+                    /* set color for air index (moderate) */
+                    &.aqi-2 {
+                        background-color: var(--aqi-2); /* Set background color for moderate AQI */
+                    }
+
+                    /* set color for air index (unhealthy for sensitive groups) */
+                    &.aqi-3 {
+                        background-color: var(--aqi-3); /* Set background color for unhealthy for sensitive groups AQI */
+                    }
+
+                    /* set color for air index (unhealthy) */
+                    &.aqi-4 {
+                        background-color: var(--aqi-4); /* Set background color for unhealthy AQI */
+                    }
+
+                    /* set color for air index (very unhealthy) */
+                    &.aqi-5 {
+                        background-color: var(--aqi-5); /* Set background color for very unhealthy AQI */
+                    }
+                }
+            }
+
+            /* set box shadow for air indices */
+            & .air-indices {
+                display: grid;                          /* Set display property to grid */
+                grid-template-columns: repeat(4, 1fr);  /* Set grid template columns */
+                place-items: center;                    /* Set place items to center */
+
+                /* */
+                & p {
+                    text-align: center;                 /* Set text align to center */
+                }
+            }
+
+            /* set box shadow for sunrise and sunset */
+            & .sunrise-sunset {
+                display: grid;                          /* Set display property to grid */
+                grid-template-columns: repeat(2, 1fr);  /* Set grid template columns */
+
+                /* set box shadow for item sunrise and sunset */
+                & .item {
+                    display: flex;                      /* Set display property to flex */
+                    align-items: center;                /* Set align items to center */
+                    gap: 10px;                          /* Set gap between items */
+
+                    /* set box shadow for heading sunrise and sunset */
+                    & h2 {
+                        margin-top: 15px;                /* Set margin top for heading */
+                    }
+                }
+            }
+
+            /* set box shadow for humidity */
+            & .card-item {
+                display: flex;                           /* Set display property to flex */
+                justify-content: space-between;          /* Set space between elements */
+            }
+        }
+
+        /* */
+        & .hourly-forecast {
+            display: grid;                              /* Set display property to grid */
+            grid-template-columns: repeat(8, 1fr);      /* Set grid template columns */
+            column-gap: 10px;                           /* Set column gap */
+
+            /* */
+            & .card {
+                text-align: center;                     /* Set text align to center */
             }
         }
     }
