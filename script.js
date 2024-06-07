@@ -2,15 +2,11 @@ let cityInput = document.getElementById('city_input'),
 searchBtn = document.getElementById('searchBtn'),
 api_key = 'ef54adefd889b2cfb1fa8e73ee856710',
 currentWeatherCard = document.querySelectorAll('.weather-left .card')[0],
-fiveDaysForecastCard = document.querySelector('.day-forecast'),
-aqiCard = document.querySelectorAll('.highlights .card')[0];
+fiveDaysForecastCard = document.querySelector('.day-forecast');
 
 function getWeatherDetails(name, lat, lon, country, state) {
     let FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,
     WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`,
-    AIR_POLLUTION_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`,
-    
-
     days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
