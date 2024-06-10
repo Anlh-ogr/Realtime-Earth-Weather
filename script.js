@@ -73,7 +73,6 @@ function getWeatherDetails(name, lat, lon, country, state) {
                     <p>O3</p>
                     <h2>${o3}</h2>
                 </div>
-
             </div>   
         `;
     }).catch(() => {
@@ -138,7 +137,6 @@ function getWeatherDetails(name, lat, lon, country, state) {
                     </div>
 
                 </div>
-
             </div>
         `;
         humidityVal.innerHTML = `${humidity}%`;
@@ -175,9 +173,8 @@ function getWeatherDetails(name, lat, lon, country, state) {
         let uniqueForecastDays = [];
         let fiveDaysForecast = data.list.filter(forecast => {
             let forecastDate = new Date(forecast.dt_txt).getDate();
-            if(!uniqueForecastDays.includes(forecastDate)) {
+            if(!uniqueForecastDays.includes(forecastDate))
                 return uniqueForecastDays.push(forecastDate);
-            }
         });
         // console.log(fiveDaysForecast);   // checking the data
         fiveDaysForecastCard.innerHTML = '';
@@ -228,7 +225,6 @@ function getUserCoordinates() {
         }).catch(() => {
             alert('Failed to fetch location data');
         });
-    
     }, error => {
         if(error.code === error.PERMISSION_DENIED)
             alert('Geolocation permission denied. Please reset location permission to grant access again');
